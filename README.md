@@ -59,6 +59,24 @@ var_export($sdk->getResponseArray($handleReadEstate));
 Checkout the [examples folder](/examples/) to see a possible implementation of
 this client.
 
+## TypeScript Usage
+
+This repository also provides a lightweight TypeScript client located in the
+`typescript` folder. Build the library with `npm run build` and import it in
+your project:
+
+```typescript
+import OnOfficeSDK from './dist';
+
+const sdk = new OnOfficeSDK();
+sdk.setApiVersion('stable');
+const handle = sdk.callGeneric(OnOfficeSDK.ACTION_ID_READ, 'estate', {
+  listlimit: 5
+});
+await sdk.sendRequests('your token', 'your secret');
+console.log(sdk.getResponseArray(handle));
+```
+
 ## Usage
 
 ### Client
